@@ -44,7 +44,7 @@ function NavBar(props) {
             <li><a href="/reviews">学习资料</a></li>
             <li><a href="/ratecourse">课程测评</a></li>
             
-            <button className="btn btn-dark" onClick={auth0Client.signIn}>Sign In</button>
+            <button className="btn green" onClick={auth0Client.signIn}>Sign In</button>
             </div>
           }
           {
