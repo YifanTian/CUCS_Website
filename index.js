@@ -107,7 +107,7 @@ app.get('/api/profiles', async (req, res) => {
     res.status(200).send();
   });
   
-  app.post('/profiles', checkJwt, async (req, res) => {
+  app.post('/api/profiles', checkJwt, async (req, res) => {
     try {
       // const user = await User.findById(req.user.id).select('-password');
       const {major, name, grade, description} = req.body;
