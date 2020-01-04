@@ -7,7 +7,7 @@ class Auth {
       domain: 'yifan.auth0.com',
       audience: 'https://yifan.auth0.com/userinfo',
       clientID: '4FlPBQrcHyk295u0RG7Oq1IN5wP1twde',
-      redirectUri: 'https://blooming-plateau-41933.herokuapp.com/callback',
+      redirectUri: 'https://cucs.herokuapp.com/callback',
       responseType: 'id_token',
       scope: 'openid profile'
     });
@@ -57,7 +57,7 @@ class Auth {
 
   signOut() {
     this.auth0.logout({
-      returnTo: 'https://blooming-plateau-41933.herokuapp.com',
+      returnTo: 'https://cucs.herokuapp.com',
       clientID: '4FlPBQrcHyk295u0RG7Oq1IN5wP1twde',
     });
   }
