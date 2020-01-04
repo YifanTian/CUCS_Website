@@ -1,0 +1,5 @@
+{
+    "mongoURI": "mongodb://yifant:Yifanuci15@ds241298.mlab.com:41298/cucs",
+    "jwtSecret": "mysecrettoken"
+  }
+  
