@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, withRouter, Switch } from 'react-router-dom';
 import './App.css';
+import auth0Client from './Auth';
 import NavBar from './pages/NavBar';
 import Landing from './pages/Landing';
 import Reviews from './pages/Reviews';
@@ -19,6 +20,27 @@ import 'materialize-css/dist/css/materialize.min.css';
 
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      checkingSession: true,
+    }
+  }
+
+  async componentDidMount() {
+    if (this.props.location.pathname === '/callback') {
+      this.setState({checkingSession:false});
+      return;
+    }
+    try {
+      await auth0Client.silentAuth();
+      this.forceUpdate();
+    } catch (err) {
+      if (err.error !== 'login_required') console.log(err.error);
+    }
+    this.setState({checkingSession:false});
+  }
+
   render() {
     const App = () => (
       <div>
@@ -50,4 +72,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
