@@ -32,7 +32,7 @@ class Questions extends Component {
   }
 
   async componentDidMount() {
-    const questions = (await axios.get('http://localhost:8081/posts')).data;
+    const questions = (await axios.get('http://localhost:8081/api/posts')).data;
     this.setState({
       questions,
     });

@@ -23,7 +23,7 @@ class Profile extends Component {
   async refreshProfile() {
     const { match: { params } } = this.props;
     console.log('params: ',params);
-    const profile = (await axios.get(`http://localhost:8081/profile/${params.profileId}`)).data;
+    const profile = (await axios.get(`http://localhost:8081/api/profiles/${params.profileId}`)).data;
     console.log('profile: ',profile);
     this.setState({
         profile,
@@ -33,7 +33,7 @@ class Profile extends Component {
   async deleteProfile() {
     console.log('try to delete profile');
     console.log(`try to delete profile of ${this.state.profile._id}`);
-    await axios.delete(`http://localhost:8081/profiles/${this.state.profile._id}`, {
+    await axios.delete(`http://localhost:8081/api/profiles/${this.state.profile._id}`, {
       headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
     });
     await this.refreshProfile();

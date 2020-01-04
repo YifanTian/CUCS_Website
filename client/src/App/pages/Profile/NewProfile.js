@@ -51,7 +51,7 @@ class NewQuestion extends Component {
     }
     // auth0Client.isAuthenticated() && console.log(auth0Client.getProfile().name);
 
-    await axios.post('http://localhost:8081/profiles', {
+    await axios.post('http://localhost:8081/api/profiles', {
       name: use_name,
       major: this.state.major,
       grade: "first year",

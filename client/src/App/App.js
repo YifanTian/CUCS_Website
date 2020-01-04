@@ -55,12 +55,12 @@ class App extends Component {
         <Route exact path='/question/:questionId' component={Question}/>
         <Route exact path='/profile/:profileId' component={Profile}/>
         <Route exact path='/callback' component={Callback}/>
-        {/* <SecuredRoute path='/new-question'
+        <SecuredRoute path='/new-question'
                       component={NewQuestion}
                       checkingSession={this.state.checkingSession} />
         <SecuredRoute path='/new-profile'
                       component={NewProfile}
-                      checkingSession={this.state.checkingSession} /> */}
+                      checkingSession={this.state.checkingSession} />
         </Switch>
       </div>
     )

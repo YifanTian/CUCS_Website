@@ -46,7 +46,7 @@ class Question extends Component {
 
   async refreshQuestion() {
     const { match: { params } } = this.props;
-    const question = (await axios.get(`http://localhost:8081/posts/${params.questionId}`)).data;
+    const question = (await axios.get(`http://localhost:8081/api/posts/${params.questionId}`)).data;
     this.setState({
       question,
     });
@@ -63,7 +63,7 @@ class Question extends Component {
 
   async deletePost() {
     console.log(`try to delete post of ${this.state.question._id}`);
-    await axios.delete(`http://localhost:8081/posts/${this.state.question._id}`, {
+    await axios.delete(`http://localhost:8081/api/posts/${this.state.question._id}`, {
       headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
     });
     await this.refreshQuestion();
