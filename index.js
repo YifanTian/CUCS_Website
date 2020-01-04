@@ -53,7 +53,7 @@ const checkJwt = jwt({
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('/profiles', async (req, res) => {
+app.get('/api/profiles', async (req, res) => {
     try {
       console.log('get profiles');
       const profiles = await Profile.find();

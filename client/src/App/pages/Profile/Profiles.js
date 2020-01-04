@@ -17,7 +17,7 @@ class Profiles extends Component {
     // const alt_profiles = (await axios.get('/api/profile')).data;
     // console.log('alt_profiles: ', alt_profiles);
 
-    const profiles = (await axios.get('http://localhost:8081/profiles')).data;
+    const profiles = (await axios.get('http://localhost:8081/api/profiles')).data;
     this.setState({
       profiles,
     });
