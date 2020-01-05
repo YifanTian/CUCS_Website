@@ -8,7 +8,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 class Reviews extends Component {
 
-  // console.log(auth0Client.getProfile().name);
   render() {
     return (
       

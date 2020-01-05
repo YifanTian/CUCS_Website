@@ -22,7 +22,6 @@ class NewQuestion extends Component {
   }
 
   updateName() {
-    console.log('updateName');
     this.setState({
       name: auth0Client.getProfile().name,
     });
@@ -43,7 +42,6 @@ class NewQuestion extends Component {
 
     var use_name = 'guest';
     if(auth0Client.isAuthenticated()) {
-      console.log(auth0Client.getProfile().name);
       use_name = auth0Client.getProfile().name;
     }
 
@@ -68,13 +66,13 @@ class NewQuestion extends Component {
               <div className="card-header">New Question</div>
               <div className="card-body text-left">
                 <div className="form-group">
-                  <label htmlFor="exampleInputEmail1">Title:</label>
+                  <label htmlFor="exampleInputEmail1">课程:</label>
                   <input
                     disabled={this.state.disabled}
                     type="text"
                     onBlur={(e) => {this.updateTitle(e.target.value)}}
                     className="form-control"
-                    placeholder="Give your question a title."
+                    placeholder="例如:ICS 31."
                   />
                 </div>
                 <div className="form-group">
@@ -84,7 +82,7 @@ class NewQuestion extends Component {
                     type="text"
                     onBlur={(e) => {this.updateDescription(e.target.value)}}
                     className="form-control"
-                    placeholder="Give more context to your question."
+                    placeholder="邮箱或微信号."
                   />
                 </div>
                 {/* <div className="form-group">

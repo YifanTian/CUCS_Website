@@ -12,12 +12,11 @@ class DeleteProfile extends Component {
   }
 
   render() {
-    console.log(auth0Client.getProfile());
     if (!auth0Client.isAuthenticated()) return null;
     return (
       <Fragment>
         <button
-          className="btn btn-primary"
+          className="btn red btn-primary"
           onClick={() => {this.submit()}}>
           delete my profile
         </button>

@@ -55,7 +55,6 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('/api/profiles', async (req, res) => {
     try {
-      console.log('get profiles');
       const profiles = await Profile.find();
       res.json(profiles);
     } catch (err) {
@@ -82,18 +81,12 @@ app.get('/api/profiles', async (req, res) => {
   });
 
   app.delete('/api/profiles/:id', checkJwt, async (req, res) => {
-    // console.log('delete id',req.params.id);
-    // const {title, name, description} = req.body;
-    console.log('delete profile with id');
-    console.log(req.params.id);
-  
+
     const profile = await Profile.findById(req.params.id);
     
     if (!profile) {
       return res.status(404).json({ msg: 'Post not found' });
     }
-    // console.log(profile.name.toString());
-    // console.log(req.user.name);
   
     // Check user
     if (profile.name.toString() !== req.user.name) {
@@ -102,8 +95,6 @@ app.get('/api/profiles', async (req, res) => {
   
     await profile.remove();
   
-    // console.log(questions);
-    // questions.remove(req.params.id);
     res.status(200).send();
   });
   
@@ -111,10 +102,7 @@ app.get('/api/profiles', async (req, res) => {
     try {
       // const user = await User.findById(req.user.id).select('-password');
       const {major, name, grade, description} = req.body;
-  
-      console.log('posts post');
-      console.log(req.body);
-  
+    
       const newProfile = new Profile({
         major:major,
         name:name,
@@ -164,9 +152,6 @@ app.get('/api/profiles', async (req, res) => {
 	  // const user = await User.findById(req.user.id).select('-password');
 	  const {id, title, name, description} = req.body;
 
-	  console.log('posts post');
-	  console.log(req.body);
-
 	  const newPost = new Post({
 		title: title,
 		name: name,
@@ -185,18 +170,12 @@ app.get('/api/profiles', async (req, res) => {
 });
 
 app.delete('/api/posts/:id', checkJwt, async (req, res) => {
-    // console.log('delete id',req.params.id);
-    // const {title, name, description} = req.body;
-    console.log('delete id');
-    console.log(req.params.id);
-  
+
     const post = await Post.findById(req.params.id);
     
     if (!post) {
       return res.status(404).json({ msg: 'Post not found' });
     }
-    console.log(post.name.toString());
-    console.log(req.user.name);
   
     // Check user
     if (post.name.toString() !== req.user.name) {
@@ -205,7 +184,6 @@ app.delete('/api/posts/:id', checkJwt, async (req, res) => {
   
     await post.remove();
   
-    // console.log(questions);
     // questions.remove(req.params.id);
     res.status(200).send();
   });

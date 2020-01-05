@@ -11,22 +11,15 @@ class Dashboard extends Component {
       profile: null,
     };
 
-    console.log('profile: ',this.state);
     // this.submitAnswer = this.submitAnswer.bind(this);
   }
 
   async componentDidMount() {
-    console.log('componentDidMount');
     await this.refreshProfile();
   }
 
   async refreshProfile() {
-    // const { match: { params } } = this.props;
-    // console.log('params: ',params);
-    console.log('refreshProfile: ');
-    console.log(auth0Client.isAuthenticated())
     const profile = (await axios.get(`http://localhost:8081/profiles`)).data;
-    console.log('profile: ',profile);
 
     // const profile = (await axios.get(`http://localhost:8081/myprofile`, {
     //   headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
@@ -38,10 +31,8 @@ class Dashboard extends Component {
   }
 
   render() {
-    auth0Client.isAuthenticated() && console.log(auth0Client.getProfile().name);
 
     const {profile} = this.state;
-    console.log('profile: ',profile);
     if (profile === null) return <p>Loading ...</p>;
     return (
       <div className="container">

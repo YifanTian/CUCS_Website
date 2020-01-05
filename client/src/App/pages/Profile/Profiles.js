@@ -13,10 +13,6 @@ class Profiles extends Component {
   }
 
   async componentDidMount() {
-    // const res = await axios.get('/api/profile');
-    // const alt_profiles = (await axios.get('/api/profile')).data;
-    // console.log('alt_profiles: ', alt_profiles);
-
     const profiles = (await axios.get('http://localhost:8081/api/profiles')).data;
     this.setState({
       profiles,
@@ -24,18 +20,16 @@ class Profiles extends Component {
   }
 
   render() {
-    {auth0Client.isAuthenticated() && console.log(auth0Client.getProfile().name);}
-    console.log(this.state.profiles);
     return (
       <div className="container">
         <div className="row">
           {auth0Client.isAuthenticated() && this.state.profiles && this.state.profiles.filter(profile => profile.name === auth0Client.getProfile().name).length === 0 &&
             <Link to="/new-profile">
               <div className="card text-white bg-secondary mb-3">
-                <div className="card-header">Do not have a profile?</div>
+                <div className="card-header">还没有个人信息?</div>
                 <div className="card-body">
-                  <h4 className="card-title">+ New Profile</h4>
-                  <p className="card-text">Don't worry. Click here!</p>
+                  <h4 className="card-title">+添加信息</h4>
+                  <p className="card-text">别着急，点击这里!</p>
                 </div>
               </div>
               <div class="divider"></div>
@@ -78,7 +72,7 @@ class Profiles extends Component {
                     </Link>
                     <td>{profile.major}</td>
                     <td>{profile.grade}</td>
-                    <td><a href={profile.grade}>链接</a></td>
+                    <td><a href={profile.description}>链接</a></td>
                   </tr>
                 ))
               }

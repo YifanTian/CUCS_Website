@@ -7,8 +7,6 @@ import M from "materialize-css";
 
 
 function Landing(props) {
-
-  // console.log(auth0Client.getProfile().name);
   return (
     <div class="container">
     <h1 className="center"></h1>

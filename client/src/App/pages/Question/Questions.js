@@ -9,7 +9,7 @@ class Questions extends Component {
 
     this.state = {
       questions: null,
-      doFilter: false,
+      doFilter: true,
       courseFilter: '',
     };
 
@@ -22,8 +22,8 @@ class Questions extends Component {
   //   });
   // }
 
-  handleCheckboxChange = event =>
-  this.setState({ doFilter: event.target.checked })
+  // handleCheckboxChange = event =>
+  // this.setState({ doFilter: event.target.checked })
 
   updateCourseFilter(value) {
     this.setState({
@@ -42,8 +42,6 @@ class Questions extends Component {
   // const [skill4Filter, setSkill4Filter] = useState('');
 
   render() {
-    
-    console.log(this.state.questions);
     return (
       <div className="container">
       <div class="section">
@@ -62,13 +60,17 @@ class Questions extends Component {
 
           {this.state.questions === null && <p>加载课程...</p>}
           <span>
-              <label>
+              {/* <label>
               <input type="checkbox" checked={this.state.doFilter} onChange={this.handleCheckboxChange}/>
               <span>筛选课程</span>
-              </label>
+              </label> */}
+              {/* <p>筛选课程</p> */}
+              <span>筛选课程:</span>
               <input value={this.state.courseFilter} onChange={e => this.updateCourseFilter(e.target.value)} placeholder="e.g. ICS31"></input>
             </span>
-          <div class="divider"></div>
+            <p></p>
+            <p></p>
+          {/* <div class="divider"></div> */}
 
             <table class="striped highlight centered responsive-table">
               <thead>

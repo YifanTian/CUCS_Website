@@ -25,7 +25,6 @@ class RateCourse extends Component {
   //   this.setState(prevState => ({ [collapse]: !prevState[collapse] }));
   // };
 
-  // console.log(auth0Client.getProfile().name);
   render() {
     return (
       

@@ -25,17 +25,16 @@ class SubmitAnswer extends Component {
   }
 
   render() {
-    console.log(auth0Client.getProfile());
     if (!auth0Client.isAuthenticated()) return null;
     return (
       <Fragment>
         <div className="form-group text-center">
-          <label htmlFor="exampleInputEmail1">Answer:</label>
+          <label htmlFor="exampleInputEmail1">是否感兴趣?</label>
           <input
             type="text"
             onChange={(e) => {this.updateAnswer(e.target.value)}}
             className="form-control"
-            placeholder="Share your answer."
+            placeholder="填下您的联系方式."
             value={this.state.answer}
           />
         </div>

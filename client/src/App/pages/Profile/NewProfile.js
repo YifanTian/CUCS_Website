@@ -7,7 +7,6 @@ class NewQuestion extends Component {
   constructor(props) {
     super(props);
 
-    console.log(auth0Client.getProfile().name);
     this.state = {
       disabled: false,
       major: '',
@@ -24,7 +23,6 @@ class NewQuestion extends Component {
   }
 
   updateName() {
-    console.log('updateName');
     this.setState({
       name: auth0Client.getProfile().name,
     });
@@ -36,6 +34,12 @@ class NewQuestion extends Component {
     });
   }
 
+  updateGrade(value) {
+    this.setState({
+      grade: value,
+    });
+  }
+
   async submit() {
     this.updateName();
     
@@ -43,18 +47,15 @@ class NewQuestion extends Component {
       disabled: true,
     });
 
-    // console.log('this.state.name',auth0Client.getProfile().name);
     var use_name = 'guest';
     if(auth0Client.isAuthenticated()) {
-      console.log(auth0Client.getProfile().name);
       use_name = auth0Client.getProfile().name;
     }
-    // auth0Client.isAuthenticated() && console.log(auth0Client.getProfile().name);
 
     await axios.post('http://localhost:8081/api/profiles', {
       name: use_name,
       major: this.state.major,
-      grade: "first year",
+      grade: this.state.grade,
       description: this.state.description,
     }, {
       headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
@@ -72,23 +73,33 @@ class NewQuestion extends Component {
               <div className="card-header">New Profile</div>
               <div className="card-body text-left">
                 <div className="form-group">
-                  <label htmlFor="exampleInputEmail1">Major:</label>
+                  <label htmlFor="exampleInputEmail1">专业:</label>
                   <input
                     disabled={this.state.disabled}
                     type="text"
                     onBlur={(e) => {this.updateMajor(e.target.value)}}
                     className="form-control"
-                    placeholder="Give your question a title."
+                    placeholder="专业，例如:CS."
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="exampleInputEmail1">Description:</label>
+                  <label htmlFor="exampleInputEmail1">年级:</label>
+                  <input
+                    disabled={this.state.disabled}
+                    type="text"
+                    onBlur={(e) => {this.updateGrade(e.target.value)}}
+                    className="form-control"
+                    placeholder="年级，例如:一年级."
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="exampleInputEmail1">LinkedIn:</label>
                   <input
                     disabled={this.state.disabled}
                     type="text"
                     onBlur={(e) => {this.updateDescription(e.target.value)}}
                     className="form-control"
-                    placeholder="Give more context to your question."
+                    placeholder="填写LinkedIn链接."
                   />
                 </div>
                 <button

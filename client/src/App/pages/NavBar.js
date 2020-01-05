@@ -8,7 +8,6 @@ function NavBar(props) {
     props.history.replace('/');
   };
 
-  // console.log(auth0Client.getProfile().name);
   return (
     // <nav className="navbar navbar-dark bg-primary fixed-top">
     <nav>

@@ -11,7 +11,6 @@ import auth0Client from '../../Auth';
 
 // const deletePost = postId => async dispatch => {
 //   try {
-//     console.log(`try to delete post of ${postId}`);
 //     await axios.delete(`http://localhost:8081/posts/${postId}`);
 
 //     dispatch({
@@ -20,7 +19,6 @@ import auth0Client from '../../Auth';
 //     });
 
 //     // dispatch(setAlert('Post Removed', 'success'));
-//     console.log('Post Removed success');
 //   } catch (err) {
 //     dispatch({
 //       type: 'POST_ERROR',
@@ -62,37 +60,30 @@ class Question extends Component {
   }
 
   async deletePost() {
-    console.log(`try to delete post of ${this.state.question._id}`);
     await axios.delete(`http://localhost:8081/api/posts/${this.state.question._id}`, {
       headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
     });
     await this.refreshQuestion();
   }
 
-  render() {
-    // const {curr_profile} = auth0Client.getProfile();
-    // console.log(typeof curr_profile);
-    auth0Client.isAuthenticated() && console.log(auth0Client.getProfile().name);
-    
+  render() {    
     const {question} = this.state;
-    console.log(this.state);
     if (question === null) return <p>Loading ...</p>;
     return (
       <div className="container">
         <div className="row">
           <div className="jumbotron col-12">
-            <h1 className="display-3">{question.title}</h1>
-            {/* <p className="lead">Owner: {question.name}</p> */}
-            {/* <label className="mr-2 text-white">{auth0Client.getProfile().name}</label> */}
-            <p className="lead">{question.description}</p>
+            <h2 className="display-3">课程:{question.title}</h2>
+            <p className="lead">发帖人: {question.name}</p>
+            <p className="lead">联系方式: {question.description}</p>
             <hr className="my-4" />
             <SubmitAnswer questionId={question._id} submitAnswer={this.submitAnswer} />
-            <p>Answers:</p>
             {
               question.answers.map((answer, idx) => (
                 <p className="lead" key={idx}>{answer.answer}</p>
               ))
             }
+            <h1></h1>
             {/* {auth0Client.isAuthenticated() && ( */}
             {/* <button
               onClick={() => deletePost(question.id)}
