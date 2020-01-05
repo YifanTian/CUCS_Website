@@ -185,7 +185,7 @@ app.get('/api/profiles', async (req, res) => {
 });
 
 
-app.delete('/posts/:id', checkJwt, async (req, res) => {
+app.delete('/api/posts/:id', checkJwt, async (req, res) => {
     // console.log('delete id',req.params.id);
     // const {title, name, description} = req.body;
     console.log('delete id');
