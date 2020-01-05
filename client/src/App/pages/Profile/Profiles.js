@@ -42,7 +42,7 @@ class Profiles extends Component {
             </Link>}
           </div>
          
-            <span>
+            {/* <span>
               <label>
               <input type="checkbox" checked={this.state.doFilter} onChange={this.handleCheckboxChange}/>
               <span>用课程筛选</span>
@@ -55,40 +55,53 @@ class Profiles extends Component {
               <input type="checkbox" checked={this.state.doFilter} onChange={this.handleCheckboxChange}/>
               <span>可内推</span>
               </label>
-            </span>
+            </span> */}
             <div class="divider"></div>
             <p></p>
 
-          {this.state.profiles === null && <p>Loading profiles...</p>}
-          {
+            <table class="striped highlight centered responsive-table">
+              <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>专业</th>
+                    <th>年级</th>
+                    <th>LinkedIn</th>
+                </tr>
+              </thead>
+              {this.state.profiles === null && <p>Loading profiles...</p>}
+              <tbody>
+              {
+                this.state.profiles && this.state.profiles.map(profile => (
+                  <tr>
+                    <Link to={`/profile/${profile._id}`}>
+                    <td>{profile.name}</td>
+                    </Link>
+                    <td>{profile.major}</td>
+                    <td>{profile.grade}</td>
+                    <td><a href={profile.grade}>链接</a></td>
+                  </tr>
+                ))
+              }
+              </tbody>
+            </table>
+
+          {/* {
             this.state.profiles && this.state.profiles.map(profile => (
               <div key={profile.id} className="col-sm-6 col-md-12 col-lg-12">
                 <Link to={`/profile/${profile._id}`}>
-                  {/* <div className="card text-white bg-success mb-3">
-                    <div className="card-header">Name: {profile.name}</div>
-                    <div className="card-body">
-                      <h4 className="card-title">{profile.major}</h4>
-                      <p className="card-text">Year: {profile.grade}</p>
-                      <p className="card-text">{profile.description}</p>
-                    </div>
-                  </div> */}
                   <div className='profile bg-light'>
                   <div className="row col s12">
-                  <h5 className="card-title col s4">{profile.name}</h5>
-                      {/* <div className="card-body"> */}
-                        {/* <p className="card-text">Owner: {question.name}</p>
-                        <p className="card-text">{question.description}</p>
-                        <div className="card-header">Answers: {question.answers}</div> */}
-                        <h5 className="card-title col s4 ">Major: {profile.major}</h5>
-                        {/* <p className="col-sm-4">{question.description}</p> */}
-                        <h5 className="card-title col s4">Year: {profile.grade}</h5>
-                      {/* </div> */}
+                  <h6 className="card-title col s4">姓名:{profile.name}</h6>
+                        <h6 className="card-title col s4 ">在读/毕业: {profile.major}</h6>
+                        <h6 className="card-title col s4">年级/公司: {profile.grade}</h6>
+                        <h6 className="card-title col s4">LinkedIn</h6>
+                        <h6 className="card-title col s4">联系方式: {profile.grade}</h6>
                     </div>
                   </div>
                 </Link>
               </div>
             ))
-          }
+          } */}
         </div>
     )
   }

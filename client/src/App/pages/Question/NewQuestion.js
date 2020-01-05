@@ -78,7 +78,7 @@ class NewQuestion extends Component {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="exampleInputEmail1">Description:</label>
+                  <label htmlFor="exampleInputEmail1">联系方式:</label>
                   <input
                     disabled={this.state.disabled}
                     type="text"
@@ -87,6 +87,16 @@ class NewQuestion extends Component {
                     placeholder="Give more context to your question."
                   />
                 </div>
+                {/* <div className="form-group">
+                  <label htmlFor="exampleInputEmail1">介绍:</label>
+                  <input
+                    disabled={this.state.disabled}
+                    type="text"
+                    onBlur={(e) => {this.updateDescription(e.target.value)}}
+                    className="form-control"
+                    placeholder="Give more context to your question."
+                  />
+                </div> */}
                 <button
                   disabled={this.state.disabled}
                   className="btn btn-primary"

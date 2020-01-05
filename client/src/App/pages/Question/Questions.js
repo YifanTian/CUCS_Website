@@ -54,37 +54,87 @@ class Questions extends Component {
               <div className="card-header">交换课程? 列在这儿!</div>
               <div className="card-body">
                 <h4 className="card-title">+ 添加新课程</h4>
-                {/* <p className="card-text">Don't worry. Help is on the way!</p> */}
               </div>
             </div>
           </Link>
           </div>
           </div>
-          
-          {this.state.questions === null && <p>Loading questions...</p>}
-            <span>
+
+          {this.state.questions === null && <p>加载课程...</p>}
+          <span>
               <label>
               <input type="checkbox" checked={this.state.doFilter} onChange={this.handleCheckboxChange}/>
               <span>筛选课程</span>
               </label>
               <input value={this.state.courseFilter} onChange={e => this.updateCourseFilter(e.target.value)} placeholder="e.g. ICS31"></input>
             </span>
-            <div class="divider"></div>
+          <div class="divider"></div>
+
+            <table class="striped highlight centered responsive-table">
+              <thead>
+                <tr>
+                    <th>课程</th>
+                    <th>发帖人</th>
+                    <th>联系方式</th>
+                    <th>详细信息</th>
+                </tr>
+              </thead>
+              {this.state.profiles === null && <p>Loading profiles...</p>}
+              <tbody>
+
           {
+            this.state.questions? (!this.state.doFilter? (this.state.questions.map(question => (
+                
+                <tr>
+                  <td>{question.title}</td>  
+                  <td> {question.name}</td>
+                  <td>{question.description}</td>
+                  <Link to={`/question/${question._id}`}>
+                    <td>查看帖子</td>
+                  </Link>
+                </tr>
+                
+            ))) : (
+                this.state.questions.filter(question => question.title.includes(this.state.courseFilter.toUpperCase())).map(question => (
+                  <tr>
+                    <td>{question.title}</td>       
+                    <td> {question.name}</td>
+                    <td>{question.description}</td>
+                    <Link to={`/question/${question._id}`}>
+                      <td>查看帖子</td>
+                    </Link>     
+                  </tr>    
+                  
+                ))
+              )
+          ) : (
+            <h4>No profiles found...</h4>
+          )}
+
+
+              {/* {
+                this.state.questions && this.state.questions.map(question => (
+                  <tr>
+                    <Link to={`/question/${question._id}`}>
+                    <td>{question.title}</td>
+                    </Link>
+                    <td>{question.name}</td>
+                    <td>{question.description}</td>
+                  </tr>
+                ))
+              } */}
+              </tbody>
+            </table>
+
+          {/* {
             this.state.questions? (!this.state.doFilter? (this.state.questions.map(question => (
               <div key={question._id} className="col-sm-6 col-md-12 col-lg-12">
                 <Link to={`/question/${question._id}`}>
                   <div className='profile bg-light'>
                   <div className="row col s12">
-                  <h6 className="card-title col s4">课程: {question.title}</h6>
-                      {/* <div className="card-body"> */}
-                        {/* <p className="card-text">Owner: {question.name}</p>
-                        <p className="card-text">{question.description}</p>
-                        <div className="card-header">Answers: {question.answers}</div> */}
-                        <h6 className="card-title col s4 ">发帖人: {question.name}</h6>
-                        {/* <p className="col-sm-4">{question.description}</p> */}
-                        <h6 className="card-title col s4">回复: {question.answers.length}</h6>
-                      {/* </div> */}
+                  <h6 className="card-title col s3">课程: {question.title}</h6>
+                        <h6 className="card-title col s3 ">发帖人: {question.name}</h6>
+                        <h6 className="card-title col s3">联系方式: {question.description}</h6>
                     </div>
                   </div>
                 </Link>
@@ -95,9 +145,9 @@ class Questions extends Component {
                   <Link to={`/question/${question._id}`}>
                     <div className='profile bg-light'>
                     <div className="row col s12">
-                    <h5 className="card-title col s4">{question.title}</h5>
-                          <h5 className="card-title col s4 ">Owner: {question.name}</h5>
-                          <h5 className="card-title col s4">Reply: {question.answers.length}</h5>
+                    <h5 className="card-title col s3">{question.title}</h5>
+                          <h5 className="card-title col s3 ">Owner: {question.name}</h5>
+                          <h5 className="card-title col s3">Reply: {question.answers.length}</h5>
                       </div>
                     </div>
                   </Link>
@@ -106,7 +156,7 @@ class Questions extends Component {
               )
           ) : (
             <h4>No profiles found...</h4>
-          )}
+          )} */}
         </div>
     )
   }

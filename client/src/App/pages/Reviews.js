@@ -24,7 +24,7 @@ class Reviews extends Component {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-          <a href="https://mp.weixin.qq.com/s/kY_N3yq6r_5W85SlRPNSnA" class="secondary-content"><i class="material-icons">Review Session</i></a>
+          <a href="https://drive.google.com/file/d/1OJwgIqs9TVycL8iHwRaFo0V_T4IqKLvI/view?usp=sharing" class="secondary-content"><i class="material-icons">Review Session</i></a>
           <br/>
           <a href="https://mp.weixin.qq.com/s/kY_N3yq6r_5W85SlRPNSnA" class="secondary-content"><i class="material-icons">Project 1</i></a>
 
