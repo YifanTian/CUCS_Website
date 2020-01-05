@@ -34,7 +34,7 @@ function Landing(props) {
               <div class="card blue-grey darken-1">
                 <div class="card-content white-text">
                   <span class="card-title">课程测评</span>
-                  <p>这里有各个课程的测评，包括课程介绍，难度分析.</p>
+                  <p>这里有各个课程的测评，包括课程介绍，对于任课教授的评价，和课程难度分析.</p>
                 </div>
                 <div class="card-action">
                   <a href="/ratecourse">查看测评</a>
@@ -53,7 +53,7 @@ function Landing(props) {
                 <div class="card blue-grey darken-1">
                   <div class="card-content white-text">
                     <span class="card-title">换课系统</span>
-                    <p>换课系统.</p>
+                    <p>换课平台, 登录后添加管理换课的帖子，也可以对换课的帖子进行留言.</p>
                   </div>
                   <div class="card-action">
                     <a href="/questions">查看课程</a>
@@ -71,7 +71,7 @@ function Landing(props) {
               <div class="card blue-grey darken-1">
                 <div class="card-content white-text">
                   <span class="card-title">校友系统</span>
-                  <p>校友系统.</p>
+                  <p>校友平台, 目前只有在读校友，将在未来添加毕业后校友。登录后可以添加管理自己的名片.</p>
                 </div>
                 <div class="card-action">
                   <a href="/profiles">查看校友</a>

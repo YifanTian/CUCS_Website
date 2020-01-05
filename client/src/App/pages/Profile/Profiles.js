@@ -26,9 +26,9 @@ class Profiles extends Component {
           {auth0Client.isAuthenticated() && this.state.profiles && this.state.profiles.filter(profile => profile.name === auth0Client.getProfile().name).length === 0 &&
             <Link to="/new-profile">
               <div className="card text-white bg-secondary mb-3">
-                <div className="card-header">还没有个人信息?</div>
+                <div className="card-header">还没有个人名片?</div>
                 <div className="card-body">
-                  <h4 className="card-title">+添加信息</h4>
+                  <h4 className="card-title">+添加个人名片</h4>
                   <p className="card-text">别着急，点击这里!</p>
                 </div>
               </div>
