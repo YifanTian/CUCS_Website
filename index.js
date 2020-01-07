@@ -21,6 +21,7 @@ connectDB();
 app.use(express.json({ extended: false }));
 
 app.use('/api/posts', require('./routes/api/posts'));
+app.use('/api/profiles', require('./routes/api/profile'));
 
 // Serve static in production
 if(process.env.NODE_ENV === 'production'){

@@ -44,6 +44,7 @@ class Question extends Component {
 
   async refreshQuestion() {
     const { match: { params } } = this.props;
+    console.log('params.questionId: ',params.questionId);
     const question = (await axios.get(`/api/posts/${params.questionId}`)).data;
     this.setState({
       question,
@@ -51,7 +52,7 @@ class Question extends Component {
   }
 
   async submitAnswer(answer) {
-    await axios.post(`/answer/${this.state.question._id}`, {
+    await axios.post(`/api/posts/answer/${this.state.question._id}`, {
       answer,
     }, {
       headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
