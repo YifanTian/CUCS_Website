@@ -19,7 +19,7 @@ class Dashboard extends Component {
   }
 
   async refreshProfile() {
-    const profile = (await axios.get(`http://localhost:8081/profiles`)).data;
+    const profile = (await axios.get(`/profiles`)).data;
 
     // const profile = (await axios.get(`http://localhost:8081/myprofile`, {
     //   headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }

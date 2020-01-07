@@ -52,7 +52,7 @@ class NewQuestion extends Component {
       use_name = auth0Client.getProfile().name;
     }
 
-    await axios.post('http://localhost:8081/api/profiles', {
+    await axios.post('/api/profiles', {
       name: use_name,
       major: this.state.major,
       grade: this.state.grade,

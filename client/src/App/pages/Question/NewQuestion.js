@@ -45,7 +45,7 @@ class NewQuestion extends Component {
       use_name = auth0Client.getProfile().name;
     }
 
-    await axios.post('http://localhost:8081/api/posts', {
+    await axios.post('/api/posts', {
       id: 1,
       name: use_name,
       title: this.state.title,

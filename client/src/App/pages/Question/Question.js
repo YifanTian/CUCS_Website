@@ -44,14 +44,14 @@ class Question extends Component {
 
   async refreshQuestion() {
     const { match: { params } } = this.props;
-    const question = (await axios.get(`http://localhost:8081/api/posts/${params.questionId}`)).data;
+    const question = (await axios.get(`/api/posts/${params.questionId}`)).data;
     this.setState({
       question,
     });
   }
 
   async submitAnswer(answer) {
-    await axios.post(`http://localhost:8081/answer/${this.state.question.id}`, {
+    await axios.post(`/answer/${this.state.question._id}`, {
       answer,
     }, {
       headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
@@ -60,7 +60,7 @@ class Question extends Component {
   }
 
   async deletePost() {
-    await axios.delete(`http://localhost:8081/api/posts/${this.state.question._id}`, {
+    await axios.delete(`/api/posts/${this.state.question._id}`, {
       headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
     });
     await this.refreshQuestion();
@@ -80,7 +80,16 @@ class Question extends Component {
             <SubmitAnswer questionId={question._id} submitAnswer={this.submitAnswer} />
             {
               question.answers.map((answer, idx) => (
-                <p className="lead" key={idx}>{answer.answer}</p>
+                <div class="row">
+                  <div class="col s12 m6">
+                    <div class="card blue-grey darken-1">
+                      <div class="card-content white-text">
+                        <span class="card-title">评论者: {answer.author}</span>
+                        <p>评论: {answer.answer}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div> 
               ))
             }
             <h1></h1>

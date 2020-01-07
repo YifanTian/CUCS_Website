@@ -13,7 +13,7 @@ class Profiles extends Component {
   }
 
   async componentDidMount() {
-    const profiles = (await axios.get('http://localhost:8081/api/profiles')).data;
+    const profiles = (await axios.get('/api/profiles')).data;
     this.setState({
       profiles,
     });

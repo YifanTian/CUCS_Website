@@ -20,14 +20,14 @@ class Profile extends Component {
 
   async refreshProfile() {
     const { match: { params } } = this.props;
-    const profile = (await axios.get(`http://localhost:8081/api/profiles/${params.profileId}`)).data;
+    const profile = (await axios.get(`/api/profiles/${params.profileId}`)).data;
     this.setState({
         profile,
     });
   }
 
   async deleteProfile() {
-    await axios.delete(`http://localhost:8081/api/profiles/${this.state.profile._id}`, {
+    await axios.delete(`/api/profiles/${this.state.profile._id}`, {
       headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
     });
     await this.refreshProfile();

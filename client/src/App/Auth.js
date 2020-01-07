@@ -7,7 +7,7 @@ class Auth {
       domain: 'yifan.auth0.com',
       audience: 'https://yifan.auth0.com/userinfo',
       clientID: '4FlPBQrcHyk295u0RG7Oq1IN5wP1twde',
-      redirectUri: 'https://uci-cucs.herokuapp.com/callback',
+      redirectUri: 'http://localhost:3000/callback',
       responseType: 'id_token',
       scope: 'openid profile'
     });
@@ -57,7 +57,7 @@ class Auth {
 
   signOut() {
     this.auth0.logout({
-      returnTo: 'https://uci-cucs.herokuapp.com/',
+      returnTo: 'http://localhost:3000',
       clientID: '4FlPBQrcHyk295u0RG7Oq1IN5wP1twde',
     });
   }
