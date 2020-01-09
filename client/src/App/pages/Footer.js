@@ -4,7 +4,7 @@ import {Link, withRouter} from 'react-router-dom';
 function Footer(props) {
 
   return (
-    <footer class="page-footer">
+    <footer class="page-footer Footer">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
@@ -24,7 +24,7 @@ function Footer(props) {
     </div>
     <div class="footer-copyright">
       <div class="container">
-      © 2014 Copyright Text
+      © {new Date().getFullYear()} CUCS
       <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
       </div>
     </div>

@@ -10,7 +10,7 @@ function NavBar(props) {
 
   return (
     // <nav className="navbar navbar-dark bg-primary fixed-top">
-    <nav>
+    <nav className="NavBar">
       {/* <Link className="navbar-brand" to="/"> Home </Link>
       <Link className="navbar-brand" to="/questions"> Q&App </Link>
       <Link className="navbar-brand" to="/profiles"> Profiles </Link>
