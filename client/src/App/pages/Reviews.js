@@ -45,6 +45,23 @@ class Reviews extends Component {
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
+
+      <ExpansionPanel>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography ><h5>ICS33 </h5></Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+            sit amet blandit leo lobortis eget.
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+
       {/* <ExpansionPanel disabled>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
