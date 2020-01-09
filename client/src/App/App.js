@@ -32,7 +32,7 @@ class App extends Component {
 
   async componentDidMount() {
     if (this.props.location.pathname === '/callback') {
-      this.setState({checkingSession:false});
+      this.setState({ checkingSession: false });
       return;
     }
     try {
@@ -41,37 +41,37 @@ class App extends Component {
     } catch (err) {
       if (err.error !== 'login_required') console.log(err.error);
     }
-    this.setState({checkingSession:false});
+    this.setState({ checkingSession: false });
   }
 
   render() {
     const App = () => (
-      <div styles={{ backgroundImage:`url(${cucs})` }}>
-        <NavBar/>
+      <div className="App" styles={{ backgroundImage: `url(${cucs})` }}>
+        <NavBar />
         <Switch>
-        <Route exact path='/' component={Landing}/>
-        <Route exact path='/dashboard' component={Dashboard}/>
-        <Route exact path='/questions' component={Questions}/>
-        <Route exact path='/profiles' component={Profiles}/>
-        <Route exact path='/calender' component={Calender}/>
-        <Route exact path='/reviews' component={Reviews}/>
-        <Route exact path='/ratecourse' component={RateCourse}/>
-        <Route exact path='/question/:questionId' component={Question}/>
-        <Route exact path='/profile/:profileId' component={Profile}/>
-        <Route exact path='/callback' component={Callback}/>
-        <SecuredRoute path='/new-question'
-                      component={NewQuestion}
-                      checkingSession={this.state.checkingSession} />
-        <SecuredRoute path='/new-profile'
-                      component={NewProfile}
-                      checkingSession={this.state.checkingSession} />
-        </Switch>
-        <Footer/>
+          <Route exact path='/' component={Landing} />
+          <Route exact path='/dashboard' component={Dashboard} />
+          <Route exact path='/questions' component={Questions} />
+          <Route exact path='/profiles' component={Profiles} />
+          <Route exact path='/calender' component={Calender} />
+          <Route exact path='/reviews' component={Reviews} />
+          <Route exact path='/ratecourse' component={RateCourse} />
+          <Route exact path='/question/:questionId' component={Question} />
+          <Route exact path='/profile/:profileId' component={Profile} />
+          <Route exact path='/callback' component={Callback} />
+          <SecuredRoute path='/new-question'
+            component={NewQuestion}
+            checkingSession={this.state.checkingSession} />
+          <SecuredRoute path='/new-profile'
+            component={NewProfile}
+            checkingSession={this.state.checkingSession} />
+          </Switch>
+        <Footer />
       </div>
     )
     return (
       <Switch>
-        <App/>
+        <App />
       </Switch>
     );
   }
