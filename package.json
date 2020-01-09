@@ -6,7 +6,8 @@
   "author": "Yifan Tian",
   "scripts": {
     "start": "node index.js",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
+    "now-build": "react-scripts build && mv build dist"
   },
   "keywords": [],
   "license": "ISC",

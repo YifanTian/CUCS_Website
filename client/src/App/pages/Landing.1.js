@@ -3,76 +3,14 @@ import {Link, withRouter} from 'react-router-dom';
 import auth0Client from '../Auth';
 // Import Materialize
 import M from "materialize-css";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import cucs from '../../cucs.png'
+
 
 
 function Landing(props) {
   return (
-    // <div class="#e1bee7 purple lighten-4 ">
-    <div class="container #e8f5e9 green lighten-5" styles={{ backgroundImage:`url(${cucs})` }}>
-    
-    <Carousel autoPlay showThumbs={false}>
-    <div>
-      <img src="http://lorempixel.com/output/cats-q-c-640-480-1.jpg" />
-      <p className="legend">Legend 1</p>
-    </div>
-    <div>
-      <img src="http://lorempixel.com/output/cats-q-c-640-480-2.jpg" />
-      <p className="legend">Legend 2</p>
-    </div>
-    <div>
-      <img src="http://lorempixel.com/output/cats-q-c-640-480-3.jpg" />
-      <p className="legend">Legend 3</p>
-    </div>
-    <div>
-      <img src="http://lorempixel.com/output/cats-q-c-640-480-4.jpg" />
-      <p className="legend">Legend 4</p>
-    </div>
-    <div>
-      <img src="http://lorempixel.com/output/cats-q-c-640-480-5.jpg" />
-      <p className="legend">Legend 5</p>
-    </div>
-    <div>
-      <img src="http://lorempixel.com/output/cats-q-c-640-480-6.jpg" />
-      <p className="legend">Legend 6</p>
-    </div>
-    <div>
-      <img src="http://lorempixel.com/output/cats-q-c-640-480-7.jpg" />
-      <p className="legend">Legend 7</p>
-    </div>
-    <div>
-      <img src="http://lorempixel.com/output/cats-q-c-640-480-8.jpg" />
-      <p className="legend">Legend 8</p>
-    </div>
-    <div>
-      <img src="http://lorempixel.com/output/cats-q-c-640-480-9.jpg" />
-      <p className="legend">Legend 9</p>
-    </div>
-    <div>
-      <img src="http://lorempixel.com/output/cats-q-c-640-480-10.jpg" />
-      <p className="legend">Legend 10</p>
-    </div>
-    <div>
-      <img src="http://lorempixel.com/output/cats-q-c-640-480-11.jpg" />
-      <p className="legend">Legend 11</p>
-    </div>
-    <div>
-      <img src="http://lorempixel.com/output/cats-q-c-640-480-12.jpg" />
-      <p className="legend">Legend 12</p>
-    </div>
-    <div>
-      <img src="http://lorempixel.com/output/cats-q-c-640-480-13.jpg" />
-      <p className="legend">Legend 13</p>
-    </div>
-    <div>
-      <img src="http://lorempixel.com/output/cats-q-c-640-480-14.jpg" />
-      <p className="legend">Legend 14</p>
-    </div>
-  </Carousel> 
+    <div class="container">
 
-    {/* <h1 className="center"></h1> */}
+    <h1 className="center"></h1>
     <div class="row">
 
       <div class="col s4">
@@ -144,9 +82,26 @@ function Landing(props) {
             </div>
           </div> 
         </div>
-      </div>
-  </div>
 
+        {/* <div class="col s4">
+          <div class="row">
+            <div class="col s12 m6">
+              <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                  <span class="card-title">讨论系统</span>
+                  <p>I am a very simple card. I am good at containing small bits of information.
+                  I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                  <a href="/questions">参与讨论</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> */}
+
+    </div>
+    </div>
   );
 }
 

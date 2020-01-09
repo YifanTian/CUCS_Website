@@ -33,7 +33,7 @@ class Dashboard extends Component {
   render() {
 
     const {profile} = this.state;
-    if (profile === null) return <p>Loading ...</p>;
+    // if (profile === null) return <p>Loading ...</p>;
     return (
       <div className="container">
         <div className="center">

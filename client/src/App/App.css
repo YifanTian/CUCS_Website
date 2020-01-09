@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-image: url(../cucs.png);
 }
 
 .App-logo {
@@ -15,7 +16,7 @@
 }
 
 .landing-card {
-  height: 500px;
+  height: 200px;
 }
 
 .App-title {
