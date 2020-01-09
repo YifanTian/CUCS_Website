@@ -38,6 +38,7 @@ function NavBar(props) {
             !auth0Client.isAuthenticated() &&
             <div>
             
+            <li><a href="/calender">社团活动</a></li>
             <li><a href="/questions">交换课程</a></li>
             <li><a href="/profiles">校友系统</a></li>
             <li><a href="/reviews">学习资料</a></li>
@@ -49,6 +50,7 @@ function NavBar(props) {
           {
             auth0Client.isAuthenticated() &&
             <div>
+              <li><a href="/calender">社团活动</a></li>
               <li><a href="/questions">交换课程</a></li>
               <li><a href="/profiles">校友系统</a></li>
               <li><a href="/reviews">学习资料</a></li>
