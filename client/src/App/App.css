@@ -10,7 +10,7 @@
   flex-shrink: 0;
 }
 
-.container {
+.App > .container {
   flex-grow: 1;
   flex-shrink: 0;
 }
