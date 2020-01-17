@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
 import './App.css';
-import cucs from '../cucs.png'
 import auth0Client from './Auth';
 import NavBar from './pages/NavBar';
 import Footer from './pages/Footer';
@@ -46,7 +45,7 @@ class App extends Component {
 
   render() {
     const App = () => (
-      <div className="App" styles={{ backgroundImage: `url(${cucs})` }}>
+      <div className="App">
         <NavBar />
         <Switch>
           <Route exact path='/' component={Landing} />
