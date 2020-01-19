@@ -3,6 +3,10 @@
   flex-direction: column;
   height: 100%;
   justify-content: space-between;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)
+    ), url("../cucs1.jpg");
+  background-size: 100%;
 }
 
 .Footer {
@@ -10,7 +14,7 @@
   flex-shrink: 0;
 }
 
-.container {
+.App > .container {
   flex-grow: 1;
   flex-shrink: 0;
 }
