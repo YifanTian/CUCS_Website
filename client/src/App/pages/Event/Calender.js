@@ -16,6 +16,7 @@ const localizer = momentLocalizer(moment)
 
 
 function Landing(props) {
+  console.log('events: ',events);
   return (
     <div class="container">
     <div>

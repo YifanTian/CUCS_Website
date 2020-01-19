@@ -20,6 +20,7 @@ class Profiles extends Component {
   }
 
   render() {
+    console.log(this.state.profiles);
     return (
       <div className="container">
         <div className="row">
@@ -64,7 +65,7 @@ class Profiles extends Component {
               </thead>
               {this.state.profiles === null && <p>Loading profiles...</p>}
               <tbody>
-              {
+              {/* {
                 this.state.profiles && this.state.profiles.map(profile => (
                   <tr>
                     <Link to={`/profile/${profile._id}`}>
@@ -75,7 +76,7 @@ class Profiles extends Component {
                     <td><a href={profile.description}>链接</a></td>
                   </tr>
                 ))
-              }
+              } */}
               </tbody>
             </table>
 

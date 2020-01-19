@@ -15,7 +15,8 @@ function Landing(props) {
     
     <Carousel autoPlay showThumbs={false}>
     <div>
-      <img src="http://lorempixel.com/output/cats-q-c-640-480-1.jpg" />
+      {/* <img src="http://www.cucsuci.com/wp-content/uploads/2017/10/thumb_IMG_8524_1024.jpg" style={{background: url(`http://www.cucsuci.com/wp-content/uploads/2017/10/thumb_IMG_8524_1024.jpg`) no-repeat center; background-size: cover;}}/> */}
+      <img src="http://www.cucsuci.com/wp-content/uploads/2017/10/thumb_IMG_8524_1024.jpg"/>
       <p className="legend">Legend 1</p>
     </div>
     <div>

@@ -3,6 +3,7 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const { check, validationResult } = require('express-validator');
 const Post = require('../../schema/Post');
+const Profile = require('../../models/Profile');
 const jwt = require('express-jwt');
 const morgan = require('morgan');
 const jwksRsa = require('jwks-rsa');
